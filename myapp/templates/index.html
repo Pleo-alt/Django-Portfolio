@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Jost:wght@300;400;600&display=swap" rel="stylesheet">
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'homestyle.css' %}">
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'aboutstyle.css' %}">
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'skillstyle.css' %}">
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'portfoliostyle.css' %}">
+    <title>Document</title>
+</head>
+<body>
+
+    <div class="style__switcher"></div>
+    <!--nav-->
+    <header class="header">
+        <nav class="nav container">
+            <a href="index.html" class="nav__logo">Adrian</a>
+            <ul class="nav__list">
+                <!--Home-->
+                <li class="nav__item">
+                    <a href="#home" class="nav__link active-link">Home</a>
+                </li>
+                <!--About-->
+                <li class="nav__item">
+                    <a href="#about" class="nav__link">About</a>
+                </li>
+                 <!--Services-->
+                 <li class="nav__item">
+                    <a href="#skills" class="nav__link">Skills</a>
+                </li>
+                 <!--Portfolio-->
+                 <li class="nav__item">
+                    <a href="#works" class="nav__link">Portfolio</a>
+                </li>
+                 <!--Contact-->
+                 <li class="nav__item">
+                    <a href="#contact" class="nav__link">Contact</a>
+                </li>
+            </ul>
+        </nav>
+    </header>
+
+
+
+    <main class="main">
+        <!--Home-->
+        <section class="home" id="home">
+            <div class="home__container container grid">
+                <div class="home__content">
+                    <span class="home__small">HELLO</span>
+                    <h1 class="home__title"><span>I'm </span>Adrian O. Garrido <br/> <span> an </span> <span>aspiring Web Developer</span>
+                    </h1>
+                    <p class="home__description">Join me on the journey to create engaging web experiences</p>
+
+                        <div class="home__btns">
+                            <a href="#contact" class="btn">Hire Me</a>
+                            <a href="#portfolio" class="btn btn--transparent">Portfolio</a>
+                        </div>
+                </div>
+                <div class="home__img-wrapper">
+                    {% load static %}
+                    <img src="{% static 'img/dpwalangbg3.png' %}" alt="" class="home__img">
+                </div>
+            </div>
+        </section>
+            <!--About-->
+            <section class="about section" id="about">
+                <div class="about__container container grid">
+                    <div class="about__img-wrapper">
+                        {% load static %}
+                        <img src="{% static 'img/dpko3.jpg' %}" alt="" class="about__img"/>
+                        <img src="{% static 'img/dpko3.jpg' %}" alt="" class="about__img"/>
+                        <img src="{% static 'img/dpko3.jpg' %}" alt="" class="about__img"/>
+                        <img src="{% static 'img/dpko3.jpg' %}" alt="" class="about__img"/>
+                    </div>
+                    <div class="about__content">
+                        <h2 class="section__title" data-title="Who am I?">I am Adrian O. Garrido</h2>
+                        <p class="about__description">A Computer Science student at Cavite State University - Bacoor Campus,
+                            passionate about web development and currently exploring JavaScript for frontend solutions and
+                            Python with Django for backend capabilities</p>
+
+                        <ul class="about__data grid">
+                            <li class="data__item">
+                                <h3 class="data__title">Name: </h3>
+                                <span class="data__description">Adrian O. Garrido</span>
+                            </li>
+                            <li class="data__item">
+                                <h3 class="data__title">Age: </h3>
+                                <span class="data__description">20 years old</span>
+                            </li>
+                            <li class="data__item">
+                                <h3 class="data__title">From: </h3>
+                                <span class="data__description">Dasmariñas, Cavite</span>
+                            </li>
+                            <li class="data__item">
+                                <h3 class="data__title">Email: </h3>
+                                <span class="data__description about__link">ian13garrido@gmail.com</span>
+                            </li>
+                        </ul>
+
+                        <div class="about__bottom">
+                            <a href="{{ MEDIA_URL }}CV.pdf" class="btn" download>Download Curriculum Vitae</a>
+                            <div class="about__social-links">
+                                <a href="" class="about__social-link">
+                                    <i class="fa-brands fa-facebook"></i>
+                                </a>
+                                <a href="" class="about__social-link">
+                                    <i class="fa-brands fa-instagram"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <!--Skills-->
+        <section class="skills section" id="skills">
+            <h2 class="section__title title-center" data-title="My Talent">
+                Professional Skills
+            </h2>
+        
+            <div class="skills__container container grid">
+                {% for skill in skills %}
+                    <div class="skills__item">
+                        <div class="skills__title">
+                            <h3 class="skills__name">{{ skill.name }}</h3>
+                            <span class="skills__no">{{ skill.percentage }}%</span>
+                        </div>
+                        <!-- Use |safe to ensure the HTML tags are rendered as HTML -->
+                        <p class="skills__description">{{ skill.description|safe }}</p>
+                        <div class="skills__bar">
+                            <div class="skills__percentage" data-percentage="{{ skill.percentage }}"></div>
+                        </div>
+                    </div>
+                {% empty %}
+                    <p>No skills available.</p>
+                {% endfor %}
+            </div>
+        </section>
+
+        <!--Portfolio-->
+       <section class="works" id="works">
+    <h2 class="section__title2 title-center2" data-title="My Portfolio">
+        Recent Works
+    </h2>
+    <div class="work__container container grid">
+        {% for project in projects %}
+        <div class="work__card">
+            <img src="{{ project.image.url }}" alt="{{ project.title }}" class="work__img">
+            <div class="work__details">
+                <h3 class="work__title">{{ project.title }}</h3>
+                <span class="work__description">{{ project.description }}</span>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</section>
+        <section class="contact" id="contact"></section>
+    </main>
+    <script src="{% static 'skillscript.js' %}"></script>
+</body>
+</html>
