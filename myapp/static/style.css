@@ -321,6 +321,7 @@ nav ul li a.active {
 }
 
 .home__container {
+    display: grid;
     grid-template-columns: repeat(2, 1fr);
     align-items: center;
 }
@@ -352,6 +353,8 @@ nav ul li a.active {
 .home__img-wrapper {
     margin-inline: auto 2rem;
     position: relative;
+    overflow: hidden;
+    border-radius: 50%;
 }
 
 .home__img-wrapper::before,
@@ -363,7 +366,8 @@ nav ul li a.active {
 
 .home__img-wrapper::before {
     background-color: var(--first-color-light);
-    animation: animate__before 5s ease-in-out infinite;
+    animation: animate__before 8s ease-in-out infinite;
+   
 }
 
 .home__img-wrapper::after {
@@ -372,13 +376,17 @@ nav ul li a.active {
 
 .home__img-wrapper::after,
 .home__img{
-    animation: animate__after 5s ease-in-out infinite;
+    animation: animate__after 8s ease-in-out infinite;
 }
 
-.home__img {
+.home__img{
     z-index: 10;
     position: relative;
     vertical-align: middle;
+    width: 100%; /* Ensure image takes up the full width of the container */
+    height: 100%; /* Ensure image height scales proportionally */
+    object-fit: cover; /* Ensures the image covers the area without distortion */
+    border-radius: 50%; 
 }
 
 @keyframes animate__before {
@@ -386,7 +394,7 @@ nav ul li a.active {
         border-radius: 65% 35% 29% 71% / 55% 30% 70% 45%;
     }
     50% {
-        border-radius: 21% 79% 50% 50% / 21% 50% 50% 79%;
+        border-radius: 21% 79% 50% 50% / 21% 50% 50% 21%;
     }
     100% {
         border-radius: 65% 35% 29% 71% / 55% 30% 70% 45%;
@@ -395,13 +403,13 @@ nav ul li a.active {
 
 @keyframes animate__after {
     0% {
-        border-radius: 21% 79% 50% 50% / 21% 50% 50% 79%;
+        border-radius: 21% 79% 50% 50% / 21% 50% 50% 21%;
     }
     50% {
         border-radius: 65% 35% 29% 71% / 55% 30% 70% 45%;
     }
     100% {
-        border-radius: 21% 79% 50% 50% / 21% 50% 50% 79%;
+        border-radius: 21% 79% 50% 50% / 21% 50% 50% 21%;
     }
 }
 
