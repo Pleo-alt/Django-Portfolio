@@ -2,30 +2,64 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta name="description" content="My portfolio showcasing web design and development skills." />
+    <meta name="author" content="Adrian O. Garrido">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Jost:wght@300;400;600&display=swap" rel="stylesheet">
     {% load static %}
-    <link rel="stylesheet" href="{% static 'homestyle.css' %}">
-    {% load static %}
-    <link rel="stylesheet" href="{% static 'aboutstyle.css' %}">
-    {% load static %}
-    <link rel="stylesheet" href="{% static 'skillstyle.css' %}">
-    {% load static %}
-    <link rel="stylesheet" href="{% static 'portfoliostyle.css' %}">
-    <title>Document</title>
+    <link rel="stylesheet" href="{% static 'style.css' %}">
+    <title>Adrian O. Garrido</title>
 </head>
 <body>
+    <input type="radio" name="color" id="color-1">
+    <input type="radio" name="color" id="color-2">
+    <input type="radio" name="color" id="color-3">
+    <input type="radio" name="color" id="color-4">
+    <input type="radio" name="color" id="color-5">
+    <input type="radio" name="color" id="color-6">
+    <input type="radio" name="color" id="color-7">
+    <input type="radio" name="color" id="color-8">
+    <input type="radio" name="color" id="color-9">
+    <input type="radio" name="color" id="color-10">
+    <input type="checkbox" id="toggler"/>
+    <input type="checkbox" id="day-night"/>
 
-    <div class="style__switcher"></div>
+
+    <div class="style__switcher">
+        <label for="toggler" class="style__switcher-toggler">
+            <i class="fa-solid fa-gear fa-spin"></i>
+        </label>
+
+        <h3 class="style__switcher-title">Theme Colors</h3>
+
+        <div class="style__switcher-colors">
+            <label for="color-1" class="color-1 color"></label>
+            <label for="color-2" class="color-2 color"></label>
+            <label for="color-3" class="color-3 color"></label>
+            <label for="color-4" class="color-4 color"></label>
+            <label for="color-5" class="color-5 color"></label>
+            <label for="color-6" class="color-6 color"></label>
+            <label for="color-7" class="color-7 color"></label>
+            <label for="color-8" class="color-8 color"></label>
+            <label for="color-9" class="color-9 color"></label>
+            <label for="color-10" class="color-10 color"></label>
+        </div>
+    </div>
     <!--nav-->
     <header class="header">
         <nav class="nav container">
-            <a href="index.html" class="nav__logo">Adrian</a>
+            <a href="#home" class="nav__logo">Adrian</a>
+            <input type="checkbox" id="nav-toggler">
+
+            <label for="nav-toggler" class="nav__toggle">
+                <i class="fa-solid fa-bars"></i>
+            </label>
+
             <ul class="nav__list">
                 <!--Home-->
                 <li class="nav__item">
-                    <a href="#home" class="nav__link active-link">Home</a>
+                    <a href="#home" class="nav__link">Home</a>
                 </li>
                 <!--About-->
                 <li class="nav__item">
@@ -61,30 +95,34 @@
 
                         <div class="home__btns">
                             <a href="#contact" class="btn">Hire Me</a>
-                            <a href="#portfolio" class="btn btn--transparent">Portfolio</a>
+                            <a href="#works" class="btn btn--transparent">Portfolio</a>
                         </div>
                 </div>
                 <div class="home__img-wrapper">
                     {% load static %}
-                    <img src="{% static 'img/dpwalangbg3.png' %}" alt="" class="home__img">
+                    <img src="{% static 'img/dpwalangbg3.png' %}" alt="Profile Picture of Developer" class="home__img">
                 </div>
             </div>
         </section>
-            <!--About-->
-            <section class="about section" id="about">
+        <!--About-->
+        <section class="about section" id="about">
                 <div class="about__container container grid">
                     <div class="about__img-wrapper">
                         {% load static %}
-                        <img src="{% static 'img/dpko3.jpg' %}" alt="" class="about__img"/>
-                        <img src="{% static 'img/dpko3.jpg' %}" alt="" class="about__img"/>
-                        <img src="{% static 'img/dpko3.jpg' %}" alt="" class="about__img"/>
-                        <img src="{% static 'img/dpko3.jpg' %}" alt="" class="about__img"/>
+                        <img src="{% static 'img/dpko3.jpg' %}" alt="2nd profile picture of the developer" class="about__img"/>
+                        <img src="{% static 'img/dpko3.jpg' %}" alt="2nd profile picture of the developer" class="about__img"/>
+                        <img src="{% static 'img/dpko3.jpg' %}" alt="2nd profile picture of the developer" class="about__img"/>
+                        <img src="{% static 'img/dpko3.jpg' %}" alt="2nd profile picture of the developer" class="about__img"/>
                     </div>
                     <div class="about__content">
                         <h2 class="section__title" data-title="Who am I?">I am Adrian O. Garrido</h2>
                         <p class="about__description">A Computer Science student at Cavite State University - Bacoor Campus,
                             passionate about web development and currently exploring JavaScript for frontend solutions and
-                            Python with Django for backend capabilities</p>
+                            Python with Django for backend capabilities
+                        
+                        <br><br>
+                           For more details, you can download my Curriculum Vitae 
+                    </p>
 
                         <ul class="about__data grid">
                             <li class="data__item">
@@ -108,18 +146,23 @@
                         <div class="about__bottom">
                             <a href="{{ MEDIA_URL }}CV.pdf" class="btn" download>Download Curriculum Vitae</a>
                             <div class="about__social-links">
-                                <a href="" class="about__social-link">
+                                <a href="https://www.facebook.com/adrian.garrido.94" class="about__social-link" target="_blank" rel="noopener noreferrer">
                                     <i class="fa-brands fa-facebook"></i>
                                 </a>
-                                <a href="" class="about__social-link">
+                                <a href="https://www.instagram.com/ian_grrido/" class="about__social-link" target="_blank" rel="noopener noreferrer">
                                     <i class="fa-brands fa-instagram"></i>
                                 </a>
+                                <a href="https://github.com/Pleo-alt" class="about__social-link" target="_blank" rel="noopener noreferrer">
+                                    <i class="fa-brands fa-github"></i> <!-- GitHub icon -->
+                                </a>
                             </div>
+                            
                         </div>
+                        
                     </div>
                 </div>
-            </section>
-            <!--Skills-->
+        </section>
+        <!--Skills-->
         <section class="skills section" id="skills">
             <h2 class="section__title title-center" data-title="My Talent">
                 Professional Skills
@@ -144,25 +187,127 @@
             </div>
         </section>
 
-        <!--Portfolio-->
-       <section class="works" id="works">
-    <h2 class="section__title2 title-center2" data-title="My Portfolio">
-        Recent Works
-    </h2>
-    <div class="work__container container grid">
-        {% for project in projects %}
-        <div class="work__card">
-            <img src="{{ project.image.url }}" alt="{{ project.title }}" class="work__img">
-            <div class="work__details">
-                <h3 class="work__title">{{ project.title }}</h3>
-                <span class="work__description">{{ project.description }}</span>
+        <section class="works section" id="works">
+            <h2 class="section__title title-center" data-title="My Portfolio">
+                Recent Works
+            </h2>
+            <div class="work__container container grid">
+                {% for project in projects %}
+                <div class="work__card">
+                    <a href="javascript:void(0);" class="open-modal"
+                       data-project-id="{{ project.id }}" 
+                       data-title="{{ project.title }}" 
+                       data-image="{{ project.image.url }}">
+                        <img src="{{ project.image.url }}" alt="{{ project.title }}" class="work__img">
+                        <div class="work__details">
+                            <h3 class="work__title">{{ project.title }}</h3>
+                        </div>
+                    </a>
+                </div>
+                {% endfor %}
+            </div>
+        </section>
+        
+        <!-- Modal for Showing List_Category Data -->
+        <div id="modal" class="modal">
+            <div class="modal-content">
+                <span class="modal-close">&times;</span>
+                <div id="modal-category-items" class="modal-category-list">
+                    <!-- List Category items will be injected here by JavaScript -->
+                </div>
             </div>
         </div>
-        {% endfor %}
+
+
+
+
+        <!--Contact-->
+        <section class="contact section" id="contact">
+            <h2 class="section__title title-center" data-title="Get in Touch">
+                Contact Me
+            </h2>
+
+            <div class="contact__container container grid">
+                <div class="contact__details">
+                    <div class="contact__item">
+                        <i class="fa-solid fa-phone contact__icon"></i>
+                    <div>
+                    <h3 class="contact__title">Call Us</h3>
+                        <span class="contact__data">09993233549</span> 
+                </div>
+            </div>
+
+            <div class="contact__item">
+                <i class="fa-solid fa-envelope contact__icon"></i>
+            <div>
+            <h3 class="contact__title">Email Us</h3>
+                <span class="contact__data">ian13garrido@gmail.com</span> 
+        </div>
     </div>
-</section>
-        <section class="contact" id="contact"></section>
+
+    <div class="contact__item">
+        <i class="fa-solid fa-location-dot contact__icon"></i>
+    <div>
+    <h3 class="contact__title">Location</h3>
+        <span class="contact__data">Mabuhay City, Paliparan 3, Dasmariñas, Cavite</span> 
+</div>
+</div>
+            </div>
+            
+                <form action="{% url 'contact' %}" method="post" class="contact__form">
+                    {% csrf_token %}
+                    <div class="form__group">
+                        <div class="class__input">
+                            <input type="text" name="name" placeholder="Name" class="input__control" required />
+                        </div>
+                        <div class="class__input">
+                            <input type="email" name="email" placeholder="Email" class="input__control" required />
+                        </div>
+                    </div>
+                    <div class="class__input">
+                        <input type="text" name="subject" placeholder="Subject" class="input__control" required />
+                    </div>
+                    <div class="class__input">
+                        <textarea name="message" placeholder="Message" rows="10" class="input__control textarea" required></textarea>
+                    </div>
+                    <button type="submit" class="btn contact__btn">Send Message</button>
+                </form>
+            
+                {% if messages %}
+                    <div id="messageContainer">
+                        {% for message in messages %}
+                            <div class="message">{{ message }}</div>
+                        {% endfor %}
+                    </div>
+                {% endif %}
+            
+                <div id="successModal" class="modal">
+                    <div class="modal-content">
+                        <span class="close-button">&times;</span>
+                        <h2>Success!</h2>
+                        <p>Your message has been sent successfully!</p>
+                        <button class="modal-button">Okay</button>
+                    
+            </section>
+                
     </main>
+
+    <footer class="footer">
+        <div class="footer__container container">
+            <p class="footer__copyright">&copy; 2024 Adrian. All Rights Reserved</p>
+            <div class="footer__social-links">
+                <a href="https://www.facebook.com/adrian.garrido.94" class="footer__social-link" target="_blank" rel="noopener noreferrer">
+                    <i class="fa-brands fa-facebook"></i>
+                </a>
+                <a href="https://www.instagram.com/ian_grrido/" class="footer__social-link" target="_blank" rel="noopener noreferrer">
+                    <i class="fa-brands fa-instagram"></i>
+                </a>
+                <a href="https://github.com/Pleo-alt" class="footer__social-link" target="_blank" rel="noopener noreferrer">
+                    <i class="fa-brands fa-github"></i> <!-- GitHub icon -->
+                </a>
+            </div>
+        </div>
+    </footer>
     <script src="{% static 'skillscript.js' %}"></script>
 </body>
 </html>
