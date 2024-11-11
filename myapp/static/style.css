@@ -383,10 +383,7 @@ nav ul li a.active {
     z-index: 10;
     position: relative;
     vertical-align: middle;
-    width: 100%; /* Ensure image takes up the full width of the container */
-    height: 100%; /* Ensure image height scales proportionally */
-    object-fit: cover; /* Ensures the image covers the area without distortion */
-    border-radius: 50%; 
+    
 }
 
 @keyframes animate__before {
