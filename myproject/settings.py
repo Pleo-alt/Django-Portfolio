@@ -23,10 +23,9 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-bu2t*k-+@eecfybc^b0*f#)8gj77tch209s*b1abtert0($1er'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
-ALLOWED_HOSTS = ['Pleo.pythonanywhere.com']
-
+ALLOWED_HOSTS = []
 
 
 # Application definition
@@ -123,14 +122,10 @@ EMAIL_HOST_PASSWORD = 'xtrq dnjn pppj bscj'       # Replace with your Gmail pass
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/5.1/howto/static-files/
 
-STATIC_URL = '/static/'  # The URL for accessing static files (on your website)
-
-# Define the directory where collected static files will be stored (for production)
-STATIC_ROOT = STATIC_ROOT = '/home/Pleo/Django-Portfolio/staticfiles/'
-
-# Optionally, add STATICFILES_DIRS if you want to specify additional locations
+STATIC_URL = '/static/'
+STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 STATICFILES_DIRS = [
-    os.path.join(BASE_DIR, 'myapp', 'static'),  # Add the app's static folder
+    os.path.join(BASE_DIR, 'myapp', 'static'),
 ]
 
 
