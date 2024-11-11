@@ -123,9 +123,11 @@ EMAIL_HOST_PASSWORD = 'xtrq dnjn pppj bscj'       # Replace with your Gmail pass
 # https://docs.djangoproject.com/en/5.1/howto/static-files/
 
 STATIC_URL = '/static/'
+STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 STATICFILES_DIRS = [
-    BASE_DIR / "myapp" / "static",  # Adjust this to your app's static directory
+    os.path.join(BASE_DIR, 'myapp', 'static'),
 ]
+
 
 
 
