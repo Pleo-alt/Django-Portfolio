@@ -23,7 +23,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-bu2t*k-+@eecfybc^b0*f#)8gj77tch209s*b1abtert0($1er'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = []
 
@@ -80,7 +80,7 @@ DATABASES = {
         'NAME': BASE_DIR / 'db.sqlite3',
     }
 }
-SECURE_SSL_REDIRECT = True  # Redirect all HTTP requests to HTTPS
+
 
 # Password validation
 # https://docs.djangoproject.com/en/5.1/ref/settings/#auth-password-validators
@@ -122,10 +122,14 @@ EMAIL_HOST_PASSWORD = 'xtrq dnjn pppj bscj'       # Replace with your Gmail pass
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/5.1/howto/static-files/
 
-STATIC_URL = '/static/'
-STATIC_ROOT = os.path.join(BASE_DIR, 'static')
+STATIC_URL = '/static/'  # The URL for accessing static files (on your website)
+
+# Define the directory where collected static files will be stored (for production)
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+
+# Optionally, add STATICFILES_DIRS if you want to specify additional locations
 STATICFILES_DIRS = [
-    os.path.join(BASE_DIR, 'myapp', 'static'),
+    os.path.join(BASE_DIR, 'myapp', 'static'),  # Add the app's static folder
 ]
 
 
