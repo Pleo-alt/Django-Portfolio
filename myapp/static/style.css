@@ -658,7 +658,7 @@ nav ul li a.active {
 /* General Modal Styles */
 #modal {
     position: fixed;
-    top: 0;
+    top: 0%;
     left: 0;
     width: 100%;
     height: 100%;
@@ -667,7 +667,7 @@ nav ul li a.active {
     align-items: center;
     justify-content: center;
     z-index: 1000; /* Make sure modal is above other content */
-    overflow-y: auto; /* In case content overflows */
+    overflow: hidden;
 }
 
 /* Modal Content */
@@ -678,10 +678,12 @@ nav ul li a.active {
     max-width: 600px;
     padding: 20px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    position: relative;
+    position: relative; /* Changed from absolute */
     animation: modalIn 0.3s ease-in-out;
-    overflow: hidden; /* Ensure content does not overflow the modal */
+    overflow: hidden;
 }
+
+
 
 /* Close Button */
 .modal-close {

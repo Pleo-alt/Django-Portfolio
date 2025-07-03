@@ -82,6 +82,7 @@ const observer = new IntersectionObserver((entries) => {
 sections.forEach(section => {
     observer.observe(section);
 });
+
 document.addEventListener('DOMContentLoaded', function () {
     const modal = document.getElementById('modal');
     const closeModal = document.querySelector('.modal-close');
@@ -114,7 +115,8 @@ document.addEventListener('DOMContentLoaded', function () {
                         modalCategoryItems.innerHTML = '<p>No categories available.</p>';
                     }
 
-                    modal.style.display = 'block';  // Show the modal
+                    modal.style.display = 'flex'; // Show the modal
+                    document.body.style.overflow = 'hidden'; // Disable background scroll
                 })
                 .catch(error => {
                     console.error('Error fetching categories:', error);
@@ -126,12 +128,22 @@ document.addEventListener('DOMContentLoaded', function () {
     // Close the modal
     closeModal.addEventListener('click', function () {
         modal.style.display = 'none';
+        document.body.style.overflow = ''; // Restore scroll
     });
 
     // Close the modal if the user clicks outside of it
     window.addEventListener('click', function (event) {
         if (event.target === modal) {
             modal.style.display = 'none';
+            document.body.style.overflow = ''; // Restore scroll
+        }
+    });
+
+    // Optional: Close modal with ESC key
+    window.addEventListener('keydown', function (event) {
+        if (event.key === 'Escape' && modal.style.display === 'flex') {
+            modal.style.display = 'none';
+            document.body.style.overflow = ''; // Restore scroll
         }
     });
 });
